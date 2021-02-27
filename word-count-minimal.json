@@ -1,0 +1,29 @@
+{
+	"engine": {
+		"type": "spark",
+                "template_id": "spark-2.4.0-jaas-v2-cp4d-template",
+		"conf": {
+			"spark.app.name": "word-count",
+			"spark.hadoop.fs.cos.myocs.access.key": "S3user1",
+			"spark.hadoop.fs.cos.myocs.secret.key": "S3user1key",
+			"spark.hadoop.fs.cos.myocs.endpoint": "http://ocs-s3-service-optane.openshift-storage.svc.cluster.local",
+                        "spark.hadoop.fs.s3a.buffer.dir":"/home/spark/s3a-buffer"
+		},
+		"env": {
+			"SPARK_LOCAL_DIRS": "/home/spark"
+		},
+		"size": {
+			"num_workers": 1,
+			"worker_size": {
+				"cpu": 8,
+				"memory": "40g"
+			},
+			"driver_size": {
+				"cpu": 5,
+				"memory": "25g"
+			}
+		}
+	},
+	"application_arguments": ["cos://wordcountdemo.myocs/shakespeare.txt"],
+	"application": "cos://wordcountdemo.myocs/wordcount-3.py"
+}
