@@ -25,5 +25,5 @@
 		}
 	},
 	"application_arguments": ["cos://wordcountdemo.myocs/shakespeare.txt"],
-	"application": "cos://wordcountdemo.myocs/wordcount-3.py"
+	"application": "cos://wordcountdemo.myocs/wordcount.py"
 }
